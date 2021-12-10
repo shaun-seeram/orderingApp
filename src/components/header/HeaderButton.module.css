@@ -1,0 +1,15 @@
+.headerButton {
+    border: none;
+    background-color: #FFF;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.cartNumberContainer {
+    background-color: #CF112B;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    margin-left: 1rem;
+}

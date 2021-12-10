@@ -1,0 +1,21 @@
+.individualItem {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.individualItem img {
+    width: 70%;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #FFF;
+    width: 70%;
+    background-color: #CF112B;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    border-radius: 20px;
+}

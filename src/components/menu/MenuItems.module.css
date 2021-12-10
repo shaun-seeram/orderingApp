@@ -1,0 +1,12 @@
+.menuItems {
+    text-align: center;
+    /* background-color: firebrick; */
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: min-content;
+    gap: 2rem 1rem; 
+}
+
+.menuItems img {
+    width: 100%;
+}
