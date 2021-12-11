@@ -1,9 +1,15 @@
 import classes from "./MenuCategory.module.css";
+import menuList from "../../store/menuList";
 
 const MenuCategory = (props) => {
 
     const setCategoryHandler = () => {
-        props.setCategory(props.title)
+
+        const index = menuList.findIndex((item) => {
+            return item.title === props.title;
+        })
+
+        props.setCategory(index)
     }
 
     return (

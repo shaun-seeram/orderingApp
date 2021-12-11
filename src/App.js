@@ -1,24 +1,29 @@
 import {useState} from "react";
-
 import './App.css';
 import Header from "./components/header/Header"
 import IndividualItem from "./components/menu/IndividualItem";
 import Menu from './components/menu/Menu';
 import MenuItems from './components/menu/MenuItems';
-import menuList from "./store/menuList";
 
 function App() {
 
-  const [category, setCategory] = useState(null);
-  const [item, setItem] = useState(null);
+  const [display, setDisplay] = useState({
+    category: null,
+    item: null
+  })
 
   const setCategoryHandler = (category) => {
-    setCategory(category);
-    setItem(null);
+    setDisplay({
+      category: category,
+      item: null
+    })
   }
 
   const setItemHandler = (item) => {
-    setItem(item);
+    setDisplay({
+      ...display,
+      item: item
+    })
   }
 
   return (
@@ -26,8 +31,8 @@ function App() {
       <Header />
       <main className="wrapper2">
         <Menu setCategory={setCategoryHandler}/>
-        {category && <MenuItems category={category} setItem={setItemHandler} />}
-        {item && <IndividualItem item={item} />}
+        {display.category !== null && <MenuItems categoryIndex={display.category} setItem={setItemHandler} />}
+        {display.item !== null && <IndividualItem categoryIndex={display.category} itemIndex={display.item} />}
       </main>
     </>
   );

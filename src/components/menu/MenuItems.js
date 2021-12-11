@@ -3,15 +3,20 @@ import menuList from "../../store/menuList";
 
 const MenuItems = (props) => {
 
-    const index = menuList.findIndex((item) => {
-        return item.title === props.category
-    })
+    const setItemHandler = (selectedItem) => {
+
+        const index = menuList[props.categoryIndex].items.findIndex((item) => {
+            return item.title === selectedItem.title;
+        })
+
+        props.setItem(index)
+    }
 
     return (
         <div className={classes.menuItems}>
-            {menuList[index].items.map((item) => {
+            {menuList[props.categoryIndex].items.map((item) => {
                 return (
-                    <div onClick={() => props.setItem(item)} key={item.id}>
+                    <div onClick={() => setItemHandler(item)} key={item.id}>
                         <img src={item.image} alt="test" />
                         <p>{item.title}</p>
                     </div>

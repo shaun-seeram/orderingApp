@@ -18,4 +18,24 @@
     margin-top: 1rem;
     text-align: center;
     border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.small {
+    font-size: 1.2rem;
+    align-self: flex-end;
+}
+
+.buttons {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sizeButton {
+    background-color: red;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
 }
