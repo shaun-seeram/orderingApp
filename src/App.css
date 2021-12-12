@@ -21,9 +21,10 @@ body {
     sans-serif;
 }
 
-h1, p { 
+h1, p, ul, li, fieldset { 
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 button {
@@ -45,7 +46,7 @@ button {
 
 main {
   display: flex;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 7rem);
 }
 
 main > div {

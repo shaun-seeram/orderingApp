@@ -1,0 +1,7 @@
+.formRow {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EEF3F5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}

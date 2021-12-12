@@ -1,41 +1,68 @@
 .individualItem {
     padding: 1rem;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: scroll;
 }
 
 .individualItem img {
     width: 70%;
 }
 
+.wrapper {
+    width: 100%;
+    padding: 0 15%;
+}
+
 .title {
     font-size: 2.5rem;
-    color: #FFF;
-    width: 70%;
-    background-color: #CF112B;
-    padding: 1rem;
-    margin-top: 1rem;
+    width: 100%;
+    padding-top: 1rem;
     text-align: center;
-    border-radius: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.small {
+.titleList {
     font-size: 1.2rem;
-    align-self: flex-end;
 }
 
-.buttons {
+.price {
+    font-size: 1.6rem;
+}
+
+.dropdown {
     width: 100%;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-around;
+    margin-top: 2rem;
 }
 
-.sizeButton {
-    background-color: red;
-    padding: 1.5rem 2rem;
-    border-radius: 1rem;
+.formRow {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EEF3F5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+select {
+    width: 100%;
+    margin-left: 1rem;
+    border: none;
+    background-color: unset;
+    text-align: right;
+}
+
+fieldset {
+    border: none;
+    margin-top: 2rem;
+}
+
+fieldset input {
+    width: 5rem;
+}
+
+legend {
+    margin-bottom: 1rem;
 }

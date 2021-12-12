@@ -1,5 +1,6 @@
 .button {
-    width: 100%;
+    width: 70%;
+    margin: 0 15%;
     text-align: center;
     border-bottom: 1px solid #EEF3F5;
     padding: 2rem 0;

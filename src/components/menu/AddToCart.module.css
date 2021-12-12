@@ -1,0 +1,16 @@
+.addOrder {
+    background-color: #CF112B;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-radius: 2rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex input {
+    width: 5rem;
+}

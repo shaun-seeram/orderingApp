@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import classes from "./IndividualItem.module.css";
 import menuList from "../../store/menuList";
-import addonsList from "../../store/addonsList";
+import AddOnList from "./AddOnList";
+import ValueInput from "./ValueInput";
+import AddToCart from "./AddToCart";
 
 const IndividualItem = (props) => {
 
@@ -18,19 +20,27 @@ const IndividualItem = (props) => {
         setSizeIndex(index);
     }, [size])
 
+    const submit = (e) => {
+        e.preventDefault()
+        console.log(e)
+    }
+
     return (
         <div className={classes.individualItem}>
             <img src={item.image} alt="" />
-            <div className={classes.title}>
-                <p>{item.title}</p>
-                <p className={classes.small}>{item.sizes[sizeIndex].calories} Cal</p>
-            </div>
-            <div className={classes.buttons}>
-                {item.sizes.map((size) => {
-                    return (
-                        <button className={classes.sizeButton}>{[...size.size][0]}</button>
-                    )
-                })}
+            <div className={classes.wrapper}>
+                <div className={classes.title}>
+                    <p>{item.title}</p>
+                    <ul className={classes.titleList}>
+                        <li className={classes.price}>${item.sizes[sizeIndex].price}</li>
+                        <li>{item.sizes[sizeIndex].calories} Cal</li>
+                    </ul>
+                </div>
+                <form onSubmit={submit} className={classes.dropdown}>
+                    <ValueInput item={item} setSize={setSize} />
+                    <AddOnList />
+                    <AddToCart price={item.sizes[sizeIndex].price} />
+                </form>
             </div>
         </div>
     )
