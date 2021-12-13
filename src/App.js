@@ -1,9 +1,11 @@
 import {useState} from "react";
 import './App.css';
 import Header from "./components/header/Header"
+import Cart from "./components/menu/Cart";
 import IndividualItem from "./components/menu/IndividualItem";
 import Menu from './components/menu/Menu';
 import MenuItems from './components/menu/MenuItems';
+import CartProvider from "./store/CartProvider";
 
 function App() {
 
@@ -27,14 +29,15 @@ function App() {
   }
 
   return (
-    <>
+    <CartProvider>
+      {/* <Cart /> */}
       <Header />
       <main className="wrapper2">
         <Menu setCategory={setCategoryHandler}/>
         {display.category !== null && <MenuItems categoryIndex={display.category} setItem={setItemHandler} />}
         {display.item !== null && <IndividualItem categoryIndex={display.category} itemIndex={display.item} />}
       </main>
-    </>
+    </CartProvider>
   );
 }
 

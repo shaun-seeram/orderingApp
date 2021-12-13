@@ -1,13 +1,13 @@
 import addonsList from "../../store/addonsList";
 import Fieldset from "./Fieldset";
 
-const AddOnList = () => {
+const AddOnList = (props) => {
 
     return (
         <>
         {addonsList.map((addon) => {
             return (
-                <Fieldset key={addon.id} addon={addon} />
+                <Fieldset key={addon.id} addon={addon} item={props.item} />
             )
         })}
         </>

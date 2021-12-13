@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useReducer, useEffect, useState, useContext } from "react";
 import classes from "./IndividualItem.module.css";
 import menuList from "../../store/menuList";
 import AddOnList from "./AddOnList";
 import ValueInput from "./ValueInput";
 import AddToCart from "./AddToCart";
+import CartContext from "../../store/cartContext";
 
 const IndividualItem = (props) => {
 
-    const [size, setSize] = useState("Small");
-    const [sizeIndex, setSizeIndex] = useState(0);
+    const ctx = useContext(CartContext)
 
     const item = menuList[props.categoryIndex].items[props.itemIndex];
+
+    const [size, setSize] = useState("Small");
+    const [sizeIndex, setSizeIndex] = useState(0);
 
     useEffect(() => {
         const index = item.sizes.findIndex((item) => {
@@ -18,11 +21,31 @@ const IndividualItem = (props) => {
         })
 
         setSizeIndex(index);
+
     }, [size])
+
+    useEffect(() => {
+        document.getElementById("customizationForm").reset()
+    }, [props.itemIndex])
 
     const submit = (e) => {
         e.preventDefault()
-        console.log(e)
+
+        let test = {
+            name: item.title,
+            size: size,
+            price: item.sizes[sizeIndex].price
+        }
+
+        document.querySelectorAll("input").forEach((node) => {
+            if (node.value > 0) {
+                test[node.id] = node.value
+            }
+        })
+
+        ctx.addToCart(test)
+
+        console.log(test)
     }
 
     return (
@@ -36,10 +59,10 @@ const IndividualItem = (props) => {
                         <li>{item.sizes[sizeIndex].calories} Cal</li>
                     </ul>
                 </div>
-                <form onSubmit={submit} className={classes.dropdown}>
+                <form onSubmit={submit} id="customizationForm" className={classes.dropdown}>
                     <ValueInput item={item} setSize={setSize} />
-                    <AddOnList />
-                    <AddToCart price={item.sizes[sizeIndex].price} />
+                    <AddOnList item={props.itemIndex} />
+                    <AddToCart item={props.itemIndex} price={item.sizes[sizeIndex].price} />
                 </form>
             </div>
         </div>

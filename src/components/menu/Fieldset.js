@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NumberInput from "./NumberInput";
 import "./Fieldset.module.css";
 
-const Fieldset = ({addon}) => {
+const Fieldset = ({addon, item}) => {
 
     const [view, setView] = useState(false);
+
+    useEffect(() => {
+        setView(false)
+    }, [item])
 
     const viewHandler = () => {
         setView((prevState) => {
