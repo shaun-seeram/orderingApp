@@ -32,9 +32,12 @@ const CartProvider = (props) => {
     const [cartState, cartDispatch] = useReducer(cartReducer, defaultCart)
 
     const addToCart = (item) => {
+
+        const updatedItem = {...item, price: (item.price * item.quantity).toFixed(2)}
+
         cartDispatch({
             id: "ADDTOCART",
-            action: item
+            action: updatedItem
         })
     }
 

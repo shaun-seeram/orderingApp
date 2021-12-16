@@ -22,9 +22,9 @@ const Fieldset = ({addon, item}) => {
                 <p>{addon.id}</p>
                 <p>+</p>
             </legend>
-            {view && addon.types.map((type) => {
+            {addon.types.map((type) => {
                 return (
-                    <NumberInput key={type.id} type={type} />
+                    <NumberInput key={type.id} style={{display: view ? '' : 'none' }} type={type} />
                 )
             })}
         </fieldset>

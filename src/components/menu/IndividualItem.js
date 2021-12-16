@@ -34,7 +34,8 @@ const IndividualItem = (props) => {
         let test = {
             name: item.title,
             size: size,
-            price: item.sizes[sizeIndex].price
+            price: item.sizes[sizeIndex].price,
+            calories: item.sizes[sizeIndex].calories
         }
 
         document.querySelectorAll("input").forEach((node) => {
@@ -45,7 +46,8 @@ const IndividualItem = (props) => {
 
         ctx.addToCart(test)
 
-        console.log(test)
+        console.log(ctx.cart)
+
     }
 
     return (

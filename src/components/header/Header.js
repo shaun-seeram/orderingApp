@@ -1,12 +1,12 @@
 import "./Header.module.css"
 import HeaderButton from "./HeaderButton"
 
-const Header = () => {
+const Header = ({setCart}) => {
     return (
         <header>
             <div className="wrapper">
                 <h1>notTimmies</h1>
-                <HeaderButton />
+                <HeaderButton setCart={setCart} />
             </div>
         </header>
     )

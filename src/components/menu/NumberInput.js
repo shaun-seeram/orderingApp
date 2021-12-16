@@ -1,12 +1,12 @@
 import { useState } from "react";
 import classes from "./NumberInput.module.css";
 
-const NumberInput = ({type, view}) => {
+const NumberInput = ({style, type}) => {
 
     const [value, setValue] = useState(0);
 
     return (
-        <div className={classes.formRow}>
+        <div style={style} className={classes.formRow}>
             <div>
                 <label htmlFor={type.id}>{type.id}</label>
                 <p className={classes.calories}>{type.calories} Cal</p>

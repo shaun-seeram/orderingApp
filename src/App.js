@@ -9,6 +9,8 @@ import CartProvider from "./store/CartProvider";
 
 function App() {
 
+  const [viewCart, setViewCart] = useState(false);
+
   const [display, setDisplay] = useState({
     category: null,
     item: null
@@ -30,8 +32,8 @@ function App() {
 
   return (
     <CartProvider>
-      {/* <Cart /> */}
-      <Header />
+      {viewCart && <Cart setCart={setViewCart}/>}
+      <Header setCart={setViewCart}/>
       <main className="wrapper2">
         <Menu setCategory={setCategoryHandler}/>
         {display.category !== null && <MenuItems categoryIndex={display.category} setItem={setItemHandler} />}
