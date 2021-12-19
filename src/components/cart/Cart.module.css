@@ -40,3 +40,11 @@
     border-bottom: 1px solid #EEF3F5;
     padding: 1rem 0;
 }
+
+.cartTitle {
+    margin-bottom: 1rem;
+}
+
+.innerButton {
+    background-color: blanchedalmond;
+}

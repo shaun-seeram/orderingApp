@@ -1,8 +1,8 @@
-import { useReducer, useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import classes from "./IndividualItem.module.css";
 import menuList from "../../store/menuList";
 import AddOnList from "./AddOnList";
-import ValueInput from "./ValueInput";
+import ValueInput from "./ui/ValueInput";
 import AddToCart from "./AddToCart";
 import CartContext from "../../store/cartContext";
 
@@ -14,13 +14,20 @@ const IndividualItem = (props) => {
 
     const [size, setSize] = useState("Small");
     const [sizeIndex, setSizeIndex] = useState(0);
+    const [wait, setWait] = useState(false);
 
     useEffect(() => {
-        const index = item.sizes.findIndex((item) => {
-            return item.size === size;
-        })
+        if (wait) {
 
-        setSizeIndex(index);
+            const index = item.sizes.findIndex((item) => {
+                return item.size === size;
+            })
+    
+            setSizeIndex(index);
+
+        } else {
+            setWait(true)
+        }
 
     }, [size])
 
@@ -31,28 +38,27 @@ const IndividualItem = (props) => {
     const submit = (e) => {
         e.preventDefault()
 
-        let test = {
+        let cartedItem = {
+            id: (Math.random() * 100) + Math.random(),
             name: item.title,
             size: size,
+            originalPrice: item.sizes[sizeIndex].price,
             price: item.sizes[sizeIndex].price,
             calories: item.sizes[sizeIndex].calories
         }
 
         document.querySelectorAll("input").forEach((node) => {
             if (node.value > 0) {
-                test[node.id] = node.value
+                cartedItem[node.id] = node.value
             }
         })
 
-        ctx.addToCart(test)
-
-        console.log(ctx.cart)
-
+        ctx.addToCart(cartedItem)
     }
 
     return (
         <div className={classes.individualItem}>
-            <img src={item.image} alt="" />
+            <img src={item.image} alt={`An image of ${item.title}`} />
             <div className={classes.wrapper}>
                 <div className={classes.title}>
                     <p>{item.title}</p>

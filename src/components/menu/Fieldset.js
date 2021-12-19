@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import NumberInput from "./NumberInput";
+import NumberInput from "./ui/NumberInput";
 import "./Fieldset.module.css";
 
 const Fieldset = ({addon, item}) => {
