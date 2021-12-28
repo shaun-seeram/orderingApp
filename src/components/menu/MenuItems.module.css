@@ -1,9 +1,11 @@
 .menuItems {
+    padding: 0 1rem;
     text-align: center;
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: min-content;
-    gap: 2rem 1rem; 
+    grid-auto-rows: min-content;
+    gap: 1rem 1rem; 
     overflow: scroll;
 }
 

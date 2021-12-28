@@ -19,7 +19,7 @@ const IndividualItem = (props) => {
     useEffect(() => {
         if (wait) {
 
-            const index = item.sizes.findIndex((item) => {
+            const index = item[item.sizes ? "sizes" : "flavors"].findIndex((item) => {
                 return item.size === size;
             })
     
@@ -42,9 +42,9 @@ const IndividualItem = (props) => {
             id: (Math.random() * 100) + Math.random(),
             name: item.title,
             size: size,
-            originalPrice: item.sizes[sizeIndex].price,
-            price: item.sizes[sizeIndex].price,
-            calories: item.sizes[sizeIndex].calories
+            originalPrice: item[item.sizes ? "sizes" : "flavors"][sizeIndex].price,
+            price: item[item.sizes ? "sizes" : "flavors"][sizeIndex].price,
+            calories: item[item.sizes ? "sizes" : "flavors"][sizeIndex].calories
         }
 
         document.querySelectorAll("input").forEach((node) => {
@@ -63,14 +63,14 @@ const IndividualItem = (props) => {
                 <div className={classes.title}>
                     <p>{item.title}</p>
                     <ul className={classes.titleList}>
-                        <li className={classes.price}>${item.sizes[sizeIndex].price}</li>
-                        <li>{item.sizes[sizeIndex].calories} Cal</li>
+                        <li className={classes.price}>${item[item.sizes ? "sizes" : "flavors"][sizeIndex].price}</li>
+                        <li>{item[item.sizes ? "sizes" : "flavors"][sizeIndex].calories} Cal</li>
                     </ul>
                 </div>
                 <form onSubmit={submit} id="customizationForm" className={classes.dropdown}>
-                    <ValueInput item={item} setSize={setSize} />
-                    <AddOnList item={props.itemIndex} />
-                    <AddToCart item={props.itemIndex} price={item.sizes[sizeIndex].price} />
+                    <ValueInput item={item} setSize={setSize} label={item.sizes ? "Size" : "Flavor"} />
+                    {item.addon !== false && <AddOnList item={props.itemIndex} />}
+                    <AddToCart item={props.itemIndex} price={item[item.sizes ? "sizes" : "flavors"][sizeIndex].price} />
                 </form>
             </div>
         </div>

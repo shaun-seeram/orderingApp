@@ -32,7 +32,7 @@ const Cart = ({setCart}) => {
                                 })}
 
                                 <li className={`${classes.flex} ${classes.line}`}><span>Item Total</span> {item.price}</li>
-                                <li><button className={classes.innerButton} onClick={() => ctx.decreaseCart(item.id)}>DEC</button> Quantity: {item.quantity} <button className={classes.innerButton} onClick={() => ctx.increaseCart(item.id)}>INC</button></li>
+                                <li className={classes.quantityRow}><button className={classes.innerButton} onClick={() => ctx.decreaseCart(item.id)}>-</button> Quantity: {item.quantity} <button className={classes.innerButton} onClick={() => ctx.increaseCart(item.id)}>+</button></li>
                             </ul>
                         </li>
                     )
