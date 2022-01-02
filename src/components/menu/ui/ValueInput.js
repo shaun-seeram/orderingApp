@@ -7,7 +7,7 @@ const ValueInput = ({item, setSize, label}) => {
 
     useEffect(() => {
         setSize(ref.current.value)
-    }, [item]);
+    }, [item, setSize]);
 
     const setSizeHandler = (e) => {
         setSize(e.target.value)

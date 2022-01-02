@@ -17,7 +17,7 @@ const MenuItems = (props) => {
             {menuList[props.categoryIndex].items.map((item) => {
                 return (
                     <div onClick={() => setItemHandler(item)} key={item.id}>
-                        <img src={item.image} alt={`An image of a ${item.title}`} />
+                        <img src={item.image} alt={`A ${item.title}`} />
                         <p>{item.title}</p>
                     </div>
                 )

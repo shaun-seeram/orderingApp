@@ -29,7 +29,7 @@ const IndividualItem = (props) => {
             setWait(true)
         }
 
-    }, [size])
+    }, [size, item, wait])
 
     useEffect(() => {
         document.getElementById("customizationForm").reset()
@@ -58,7 +58,7 @@ const IndividualItem = (props) => {
 
     return (
         <div className={classes.individualItem}>
-            <img src={item.image} alt={`An image of ${item.title}`} />
+            <img src={item.image} alt={`A ${item.title}`} />
             <div className={classes.wrapper}>
                 <div className={classes.title}>
                     <p>{item.title}</p>
